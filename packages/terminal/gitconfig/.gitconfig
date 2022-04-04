@@ -1,0 +1,66 @@
+[include]
+  path = ~/.gitconfig.local
+[alias]
+  co     = checkout
+  ci     = commit
+  cim    = commit -m
+  ciam   = commit -am
+  st     = status
+  sw     = show
+  sh     = stash
+  br     = branch
+  bra    = branch -a
+  ps     = push
+  pso    = push origin
+  psod   = push origin develop
+  psom   = push origin main
+  pshm   = push heroku main
+  md     = merge develop 
+  psb    = push backlog
+  p      = pull
+  po     = pull origin
+  pod    = pull origin develop
+  pom    = pull origin main
+  pb     = pull backlog
+  pp     = pull --prune
+  re     = reset
+  d      = diff
+  dm     = diff master           # masterとのdiff
+  dw     = diff --color-words    # 単語単位でいろつけてdiff
+  dc     = diff --cached         # addされているものとのdiff
+  ds     = diff --staged         # 同上(1.6.1移行)
+  d1     = diff HEAD~            # HEADから1つ前とdiff
+  d2     = diff HEAD~~           # HEADから2つ前とdiff
+  d3     = diff HEAD~~~          # HEADから3つ前とdiff
+  d4     = diff HEAD~~~~         # HEADから4つ前とdiff
+  d5     = diff HEAD~~~~~        # HEADから5つ前とdiff
+  d10    = diff HEAD~~~~~~~~~~   # HEADから10前とdiff
+  l      = log
+  lo     = log --oneline
+  lop    = log --oneline --graph
+  la     = log --graph --all --color --pretty='%x09%h %cn%x09%s %Cred%d%Creset'
+  tr     = log --graph --pretty='format:%C(yellow)%h%Creset %s %Cgreen(%an)%Creset %Cred%d%Creset'
+  refile = checkout HEAD --
+  brupdate = fetch --prune
+  m = merge
+  filter-secret = git filter-branch --force --index-filter "git rm --cached --ignore-unmatch .env.development" --prune-empty --tag-name- filter cat -- --all
+[color]
+  ui          = true
+  diff        = auto
+  status      = auto
+  branch      = auto
+  grep        = auto
+  interactive = auto
+[pull]
+  rebase = false
+[push]
+  default = simple
+[core]
+  ignorecase = false
+	quotepath = false
+  safecrlf = true
+	autoCRLF = false
+	whitespace = cr-at-eol
+
+[init]
+	defaultBranch = main
