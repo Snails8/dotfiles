@@ -1,4 +1,7 @@
+# m1 brew path
+export PATH="$PATH:/opt/homebrew/bin"
 
+# starship
 starship init fish | source
 
 export LSCOLORS=Gxfxcxdxbxegedabagacad

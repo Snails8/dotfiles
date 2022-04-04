@@ -19,11 +19,11 @@ export PATH="$PATH:/opt/homebrew/bin"
 # ======================================================
 # dotfile ないときはgit clone
 # ======================================================
-if [ ! -d ~/dotfiles ]; then
+if [ ! -d ~/dotfiles-m1 ]; then
   cd ~
-  git clone git@github.com:Snails8/dotfiles.git
+  git clone git@github.com:Snails8/dotfiles-m1.git
 else
-  echo "dotfile is already exist."
+  echo "dotfile-m1 is already exist."
 fi
 
 # ======================================================
@@ -44,7 +44,7 @@ fi
 # ======================================================
 # install software from BrewBundle.
 # ======================================================
-brew bundle -v --file=~/dotfiles/Brewfile
+brew bundle -v --file=~/dotfiles-m1/Brewfile
 
 export PATH="$PATH:/opt/homebrew/bin"
 
@@ -86,10 +86,10 @@ fi
 # root/.config/fish 配下にシンボリックリンクが作成される (衝突しないし、上書きもできる)
 # karabiner の設定
 # ======================================================
-stow -v -d ~/dotfiles/packages/terminal -t ~ alacritty starship tmux iterm2 zshrc fish oh_my_fish thefuck gitconfig Makefile
-stow -v -d ~/dotfiles/packages/editor -t ~ vimrc vscode
-stow -v -d ~/dotfiles/packages/window_tool -t ~ yabai
-stow -v -d ~/dotfiles/packages/keybind -t ~ skhd karabiner
+stow -v -d ~/dotfiles-m1/packages/terminal -t ~ alacritty starship tmux iterm2 zshrc fish oh_my_fish thefuck gitconfig Makefile
+stow -v -d ~/dotfiles-m1/packages/editor -t ~ vimrc vscode
+stow -v -d ~/dotfiles-m1/packages/window_tool -t ~ yabai
+stow -v -d ~/dotfiles-m1/packages/keybind -t ~ skhd karabiner
 
 # ======================================================
 # source は挙動が不安定なので一旦手動で
