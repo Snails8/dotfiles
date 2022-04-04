@@ -1,4 +1,4 @@
-# dotfiles(各種設定ファイルの同期)
+# M1 Mac 用のdotfiles(各種設定ファイルの同期)
 ## setup
 初回のみsudo が必要
 ```shell
