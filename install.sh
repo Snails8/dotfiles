@@ -59,6 +59,7 @@ fi
 # ======================================================
 if [ ! -f /opt/homebrew/bin/gcloud ]; then
   curl https://sdk.cloud.google.com | bash
+  exec -l $SHELL 
 else
   echo "gcloud is already exist."
 fi
