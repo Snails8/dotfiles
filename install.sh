@@ -10,11 +10,12 @@ export PATH="$PATH:/opt/homebrew/bin"
 # ======================================================
 # homebrew がインストールされていない場合インストール(どこで実行してもok )
 # ======================================================
-#if [ ! -f /usr/local/bin/brew ]; then
-#  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-#else
-#  echo "Homebrew has already installed."
-#fi
+if [ ! -f /opt/homebrew/bin/brew ]; then
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"i
+  export PATH="$PATH:/opt/homebrew/bin"
+else
+  echo "Homebrew has already installed."
+fi
 
 # ======================================================
 # dotfile ないときはgit clone
@@ -27,7 +28,7 @@ else
 fi
 
 # ======================================================
-# # set workloads
+# set workloads
 # ======================================================
 if [ ! -d ~/works ]; then
   mkdir ~/works
@@ -51,6 +52,15 @@ export PATH="$PATH:/opt/homebrew/bin"
 # if .config has not made ,error will occur.
 if [ ! -d ~/.config ]; then
   mkdir ~/.config
+fi
+
+# ======================================================
+# gcloud 
+# ======================================================
+if [ ! -f /opt/homebrew/bin/gcloud ]; then
+  curl https://sdk.cloud.google.com | bash
+else
+  echo "gcloud is already exist."
 fi
 
 # ======================================================
