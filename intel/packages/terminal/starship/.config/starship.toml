@@ -1,0 +1,62 @@
+add_newline = false # 改行の反映
+format = """
+[┌─────────────────](bold purple)
+[│](bold green)[ $username](bold green)$aws [$time](bold red)
+[│](bold green)$directory  $git_status
+[└──](bold green) $git_branch [$character](bold green) 
+"""
+
+
+[username]
+style_user = "white dimmed"
+style_root = "black bold"
+format = "[$user]($style)"
+disabled = false
+show_always = true
+
+[time]
+disabled = false
+format = '[$time](dimmed white) '
+time_format = "%H:%M"
+utc_time_offset = "+9"
+time_range = "0:00-24:00"
+
+[cmd_duration]
+disabled = true
+show_always = true
+
+[character]
+success_symbol = "[🐟 \\$](white)" # normal prompt
+error_symbol = "[🐱💢💢💢](bold red)" # used if previous command failed
+
+[directory]
+format = " [$path]($style)"
+style = "fg:cyan"
+truncate_to_repo = false
+truncation_length = 2 # parent directories to show; default is 3
+truncation_symbol = "~/"
+
+[git_branch]
+format = "[⭑ ]($style)[$branch]($style)"
+style = "bold red"
+symbol = "[😳] (bold green)" # normal prompt
+
+[git_status]
+format = "[$all_status$ahead_behind]($style)"
+ahead = "⇡:$count "
+behind = "⇣:$count "
+deleted = "🗑:$count "
+diverged = "🐟:$count "
+stashed = "📦:$count "
+modified = "😂 :$count modified "
+staged = '[😅 $count ](dimmed bold green)'
+renamed = "😇 :$count "
+untracked = ""
+style = "dimmed bold red"
+
+[aws] # $aws で呼び出している
+format = ' [on](white dimmed) [$symbol($profile)]($style)'
+style = "bold blue"
+symbol = "✿ "
+[aws.region_aliases]
+ap-northeast-1 = "jp"
