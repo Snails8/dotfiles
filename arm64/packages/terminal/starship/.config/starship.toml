@@ -27,7 +27,7 @@ show_always = true
 
 [character]
 success_symbol = "[🐟 \\$](white)" # normal prompt
-error_symbol = "[🐱💢💢💢](bold red)" # used if previous command failed
+error_symbol = "[🐢💢💢💢](bold red)" # used if previous command failed
 
 [directory]
 format = " [$path]($style)"
@@ -48,7 +48,7 @@ behind = "⇣:$count "
 deleted = "🗑:$count "
 diverged = "🐟:$count "
 stashed = "📦:$count "
-modified = "😂 :$count modified "
+modified = "🐸 :$count modified "
 staged = '[😅 $count ](dimmed bold green)'
 renamed = "😇 :$count "
 untracked = ""
