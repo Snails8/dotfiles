@@ -1,0 +1,9 @@
+{
+	"extension.title": "Примеры использования API IntelliCode",
+	"extension.description": "Просмотрите соответствующие примеры кода из GitHub для более чем 100 000 различных API прямо в редакторе.",
+	"extension.titleshort": "Примеры использования API IntelliCode",
+	"settings.logging": "Уровень ведения журнала для консоли",
+	"settings.pythonEnabled": "Enable API Usage Examples for Python files",
+	"settings.typescriptEnabled": "Enable API Usage Examples for Typescript/Javascript files",
+	"settings.hoverSurveyEnabled": "Show survey link on hover view"
+}

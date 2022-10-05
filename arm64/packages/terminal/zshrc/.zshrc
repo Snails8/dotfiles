@@ -16,6 +16,9 @@ export PATH="$PATH:/opt/homebrew/bin"
 # 起動時にnode 読み込みを実行
 export PATH=$HOME/.nodebrew/current/bin:$PATH
 
+#python のpath設定
+export PATH=/opt/homebrew/opt/python3/libexec/bin:$PATH
+
 # エイリアス設定
 alias v=vim
 alias g=git

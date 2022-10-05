@@ -1,0 +1,10 @@
+{
+    "displayName": {
+        "message": "Remote - SSH: Editing Configuration Files",
+        "comment": [
+            "{Locked='Remote - SSH:'}",
+            "Do not translate 'Remote - SSH:'. It is a specific name."
+        ]
+    },
+    "description": "Edit SSH configuration files"
+}

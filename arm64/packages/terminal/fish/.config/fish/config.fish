@@ -9,12 +9,17 @@ export LSCOLORS=Gxfxcxdxbxegedabagacad
 # node
 set -x PATH $HOME/.nodebrew/current/bin $PATH
 
+# Python のpath設定
+export PATH=/opt/homebrew/opt/python3/libexec/bin:$PATH
+
 # alias
 alias m="make"
 alias md="mkdir"
 
 # command
 abbr -a to touch
+
+
 
 #atcoder
 abbr -a ojt oj t -c \"python3 main.py\"
