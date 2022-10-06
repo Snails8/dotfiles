@@ -10,7 +10,10 @@ export LSCOLORS=Gxfxcxdxbxegedabagacad
 set -x PATH $HOME/.nodebrew/current/bin $PATH
 
 # Python のpath設定
-export PATH=/opt/homebrew/opt/python3/libexec/bin:$PATH
+# export PATH=/opt/homebrew/opt/python3/libexec/bin:$PATH
+
+# ojコマンドの path設定
+export PATH="/System/Volumes/Data/Users/jmb20210029/Library/Python/3.8/bin:$PATH"
 
 # alias
 alias m="make"
@@ -18,8 +21,6 @@ alias md="mkdir"
 
 # command
 abbr -a to touch
-
-
 
 #atcoder
 abbr -a ojt oj t -c \"python3 main.py\"
