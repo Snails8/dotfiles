@@ -25,6 +25,10 @@ compinit
 
 # 各種設定 
 source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+setopt auto_cd # enabled to cd dir by dir-name
+setopt auto_pushd
+setopt pushd_ignore_dups
+zstyle ":completion:*:commands" rehash 1 # install cmd, ready to use
 
 # エイリアス設定
 alias v=vim
