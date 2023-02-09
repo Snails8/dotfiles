@@ -19,6 +19,9 @@ export PATH=$HOME/.nodebrew/current/bin:$PATH
 #python のpath設定
 export PATH=/opt/homebrew/opt/python3/libexec/bin:$PATH
 
+# rust
+source $HOME/.cargo/env
+
 # 保管
 autoload -U compinit
 compinit
