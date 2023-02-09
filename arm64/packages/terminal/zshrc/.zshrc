@@ -19,6 +19,13 @@ export PATH=$HOME/.nodebrew/current/bin:$PATH
 #python のpath設定
 export PATH=/opt/homebrew/opt/python3/libexec/bin:$PATH
 
+# 保管
+autoload -U compinit
+compinit
+
+# 各種設定 
+source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
 # エイリアス設定
 alias v=vim
 alias g=git
@@ -116,10 +123,19 @@ function peco-history-selection() {
 zle -N peco-history-selection
 bindkey '^T' peco-history-selection
 
+# zsh-completion
+if type brew &>/dev/null; then
+  FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
+  autoload -Uz compinit && compinit
+fi
+
 # oh-my-zsh settings
 export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="robbyrussell"
-plugins=(git)
+plugins=(
+  git
+  zsh-autosuggestions
+)
 source $ZSH/oh-my-zsh.sh
 
 # 環境依存系の読み込み
