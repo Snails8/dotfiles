@@ -1,0 +1,11 @@
+{
+  "commands.category": "Zdalne — tunele",
+  "commands.connectCurrentWindowToTunnel.title": "Połącz z aplikacją Tunnel...",
+  "commands.getStarted.title": "Rozpoczynanie za pomocą tuneli",
+  "commands.openOnDesktop.title": "Kontynuowanie pracy w edytorze VS Code Desktop",
+  "commands.reportIssue.title": "Zgłoś problem...",
+  "commands.settings.title": "Ustawienia",
+  "configuration.title": "Zdalne — tunele",
+  "description": "Nawiązuj połączenie z maszyną zdalną za pośrednictwem tunelu",
+  "settings.alwaysUpdateCLI.description": "Zawsze aktualizuj VS Code CLI, jeśli jest dostępna aktualizacja."
+}

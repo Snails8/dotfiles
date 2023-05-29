@@ -1,0 +1,18 @@
+{
+    "description": "Connect to a remote machine through a Tunnel",
+    "settings.alwaysUpdateCLI.description": {
+        "message": "Always update the VS Code CLI if there is an update available.",
+        "comment": [
+            "{Locked='VS Code CLI'}",
+            "Do not translate 'VS Code CLI'. It is a proper name."
+        ]
+    },
+    "commands.connectCurrentWindowToTunnel.title": "Connect to Tunnel...",
+    "commands.getStarted.title": "Get Started with Tunnels",
+    "commands.settings.title": "Settings",
+    "commands.reportIssue.title": "Report Issue...",
+    "commands.openOnDesktop.title": "Continue Working in VS Code Desktop",
+    "commands.category": "Remote-Tunnels",
+    "configuration.title": "Remote - Tunnels"
+
+}

@@ -1,0 +1,11 @@
+{
+  "commands.category": "원격-터널",
+  "commands.connectCurrentWindowToTunnel.title": "터널에 연결...",
+  "commands.getStarted.title": "터널 시작",
+  "commands.openOnDesktop.title": "VS Code 데스크톱에서 계속 작업하기",
+  "commands.reportIssue.title": "문제 보고...",
+  "commands.settings.title": "설정",
+  "configuration.title": "원격 - 터널",
+  "description": "터널을 통해 원격 컴퓨터에 연결",
+  "settings.alwaysUpdateCLI.description": "사용 가능한 업데이트가 있는 경우 항상 VS Code CLI를 업데이트합니다."
+}

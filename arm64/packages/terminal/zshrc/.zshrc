@@ -19,6 +19,10 @@ export PATH=$HOME/.nodebrew/current/bin:$PATH
 #python のpath設定
 export PATH=/opt/homebrew/opt/python3/libexec/bin:$PATH
 
+# python-minのm1対応
+# export PMIP_CBC_LIBRARY="/usr/local/lib/libCbc.dylib"
+# export LD_LIBRARY_PATH="/home/haroldo/prog/lib/":$LD_LIBRARY_PATH
+
 # rust
 source $HOME/.cargo/env
 
@@ -151,3 +155,5 @@ source $ZSH/oh-my-zsh.sh
 # 文字列を標準入力としてシェルに与えて実行（した上でその返り値を取得）できる
 eval $(thefuck --alias)
 eval "$(starship init zsh)"
+
+source /Users/jmb20210029/.docker/init-zsh.sh || true # Added by Docker Desktop

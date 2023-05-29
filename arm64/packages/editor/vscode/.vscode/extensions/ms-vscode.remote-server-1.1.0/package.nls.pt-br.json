@@ -1,0 +1,11 @@
+{
+  "commands.category": "Remoto-Túneis",
+  "commands.connectCurrentWindowToTunnel.title": "Conectar ao Túnel...",
+  "commands.getStarted.title": "Introdução ao Tunnel",
+  "commands.openOnDesktop.title": "Continue trabalhando no VS Code Desktop",
+  "commands.reportIssue.title": "Relatar um Problema...",
+  "commands.settings.title": "Definições",
+  "configuration.title": "Remoto – Túneis",
+  "description": "Conecte-se a um computador remoto através de um túnel",
+  "settings.alwaysUpdateCLI.description": "Sempre atualize a VS Code CLI se houver uma atualização disponível."
+}

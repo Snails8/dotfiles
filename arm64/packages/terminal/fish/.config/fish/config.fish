@@ -113,3 +113,5 @@ abbr -a j z
 
 # starship init fish | source
 
+
+source /Users/jmb20210029/.docker/init-fish.sh || true # Added by Docker Desktop
