@@ -16,8 +16,58 @@ export PATH="$PATH:/opt/homebrew/bin"
 # 起動時にnode 読み込みを実行
 export PATH=$HOME/.nodebrew/current/bin:$PATH
 
-#python のpath設定
+# Python のpath設定
 export PATH=/opt/homebrew/opt/python3/libexec/bin:$PATH
+
+# aws-mfaの設定
+export PATH=$PATH:$HOME/Library/Python/3.9/bin
+
+# cluade code
+export CLAUDE_CODE_USE_BEDROCK=1
+export ANTHROPIC_MODEL="us.anthropic.claude-sonnet-4-20250514-v1:0"
+export AWS_REGION="us-east-1" # AWSのリージョンを指定
+export AWS_PROFILE="bedrock-dev"
+export DISABLE_PROMPT_CACHING=0 # キャッシュを無効化する場合は1に設定
+
+# postgresql
+export PATH="/opt/homebrew/opt/postgresql@16/bin:$PATH"
+
+# ryeの設定
+source "$HOME/.rye/env"
+
+# volta
+export VOLTA_HOME="$HOME/.volta"
+export PATH="$VOLTA_HOME/bin:$PATH"
+
+# nvm 設定をvoltaに変更したのでオフにしている
+# export NVM_DIR="$HOME/.nvm"
+# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# autoload -U add-zsh-hook
+# load-nvmrc() {
+#   local nvmrc_path="$(nvm_find_nvmrc)"
+
+#   if [ -n "$nvmrc_path" ]; then
+#     local nvmrc_node_version=$(nvm version "$(cat "${nvmrc_path}")")
+
+#     if [ "$nvmrc_node_version" = "N/A" ]; then
+#       nvm install
+#     elif [ "$nvmrc_node_version" != "$(nvm version)" ]; then
+#       nvm use
+#     fi
+#   elif [ -n "$(PWD=$OLDPWD nvm_find_nvmrc)" ] && [ "$(nvm version)" != "$(nvm version default)" ]; then
+#     echo "Reverting to nvm default version"
+#     nvm use default
+#   fi
+# }
+# add-zsh-hook chpwd load-nvmrc
+# load-nvmrc
+
+# pyenv
+export PATH="$HOME/.pyenv/bin:$PATH"
+eval "$(pyenv init --path)"
+eval "$(pyenv init -)"
 
 # python-minのm1対応
 # export PMIP_CBC_LIBRARY="/usr/local/lib/libCbc.dylib"
@@ -25,6 +75,11 @@ export PATH=/opt/homebrew/opt/python3/libexec/bin:$PATH
 
 # rust
 source $HOME/.cargo/env
+
+# Colima(docker for mac 死んでるので。。)
+if ! colima status >/dev/null 2>&1; then
+  colima start --cpu 6 --memory 12 --disk 80
+fi
 
 # 保管
 autoload -U compinit
@@ -156,4 +211,9 @@ source $ZSH/oh-my-zsh.sh
 eval $(thefuck --alias)
 eval "$(starship init zsh)"
 
-source /Users/jmb20210029/.docker/init-zsh.sh || true # Added by Docker Desktop
+# source /Users/jmb20210029/.docker/init-zsh.sh || true # Added by Docker Desktop
+
+# now no use
+# export NVM_DIR="$HOME/.nvm"
+# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
