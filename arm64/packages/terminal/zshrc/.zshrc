@@ -84,7 +84,12 @@ export PATH="$VOLTA_HOME/bin:$PATH"
 # fi
 
 # 各種設定 
+# zsh-autosuggestions（履歴からの自動提案）
+source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+# zsh-syntax-highlighting（コマンドのシンタックスハイライト）
 source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
 setopt auto_cd # enabled to cd dir by dir-name
 setopt auto_pushd
 setopt pushd_ignore_dups
@@ -194,6 +199,12 @@ if type brew &>/dev/null; then
 fi
 autoload -Uz compinit
 compinit
+
+# 補完システムに履歴を混ぜる設定
+zstyle ':completion:*' completer _history _complete
+zstyle ':completion:*:history-words' list yes
+zstyle ':completion:*:history-words' stop yes
+zstyle ':completion:*:history-words' remove-all-dups yes
 
 # oh-my-zsh settings → 入れてないのでコメントアウト
 # export ZSH="$HOME/.oh-my-zsh"
