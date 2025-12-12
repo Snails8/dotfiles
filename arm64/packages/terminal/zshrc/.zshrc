@@ -26,14 +26,15 @@ export PATH=$PATH:$HOME/Library/Python/3.9/bin
 export CLAUDE_CODE_USE_BEDROCK=1
 export ANTHROPIC_MODEL="us.anthropic.claude-sonnet-4-20250514-v1:0"
 export AWS_REGION="us-east-1" # AWSのリージョンを指定
-export AWS_PROFILE="bedrock-dev"
+# export AWS_PROFILE="bedrock-dev"　# 一時無効
 export DISABLE_PROMPT_CACHING=0 # キャッシュを無効化する場合は1に設定
 
 # postgresql
 export PATH="/opt/homebrew/opt/postgresql@16/bin:$PATH"
 
+# 真macでは様子見
 # ryeの設定
-source "$HOME/.rye/env"
+# source "$HOME/.rye/env"
 
 # volta
 export VOLTA_HOME="$HOME/.volta"
@@ -64,26 +65,23 @@ export PATH="$VOLTA_HOME/bin:$PATH"
 # add-zsh-hook chpwd load-nvmrc
 # load-nvmrc
 
-# pyenv
-export PATH="$HOME/.pyenv/bin:$PATH"
-eval "$(pyenv init --path)"
-eval "$(pyenv init -)"
+# pyenv　→ 真macでは様子見
+# export PATH="$HOME/.pyenv/bin:$PATH"
+# eval "$(pyenv init --path)"
+# eval "$(pyenv init -)"
 
 # python-minのm1対応
 # export PMIP_CBC_LIBRARY="/usr/local/lib/libCbc.dylib"
 # export LD_LIBRARY_PATH="/home/haroldo/prog/lib/":$LD_LIBRARY_PATH
 
-# rust
-source $HOME/.cargo/env
+# rust → 真macでは様子見
+# source $HOME/.cargo/env
 
-# Colima(docker for mac 死んでるので。。)
-if ! colima status >/dev/null 2>&1; then
-  colima start --cpu 6 --memory 12 --disk 80
-fi
-
-# 保管
-autoload -U compinit
-compinit
+# 新macでは様子見
+# # Colima(docker for mac 死んでるので。。)
+# if ! colima status >/dev/null 2>&1; then
+#   colima start --cpu 6 --memory 12 --disk 80
+# fi
 
 # 各種設定 
 source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
@@ -190,19 +188,21 @@ zle -N peco-history-selection
 bindkey '^T' peco-history-selection
 
 # zsh-completion
+# completion path
 if type brew &>/dev/null; then
-  FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
-  autoload -Uz compinit && compinit
+  FPATH="$(brew --prefix)/share/zsh/site-functions:$(brew --prefix)/share/zsh-completions:$FPATH"
 fi
+autoload -Uz compinit
+compinit
 
-# oh-my-zsh settings
-export ZSH="$HOME/.oh-my-zsh"
-ZSH_THEME="robbyrussell"
-plugins=(
-  git
-  zsh-autosuggestions
-)
-source $ZSH/oh-my-zsh.sh
+# oh-my-zsh settings → 入れてないのでコメントアウト
+# export ZSH="$HOME/.oh-my-zsh"
+# ZSH_THEME="robbyrussell"
+# plugins=(
+#   git
+#   zsh-autosuggestions
+# )
+# source $ZSH/oh-my-zsh.sh
 
 # 環境依存系の読み込み
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local

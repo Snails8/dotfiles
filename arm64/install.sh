@@ -11,7 +11,7 @@ export PATH="$PATH:/opt/homebrew/bin"
 # homebrew がインストールされていない場合インストール(どこで実行してもok )
 # ======================================================
 if [ ! -f /opt/homebrew/bin/brew ]; then
-  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"i
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
   export PATH="$PATH:/opt/homebrew/bin"
 else
   echo "Homebrew has already installed."
@@ -20,11 +20,11 @@ fi
 # ======================================================
 # dotfile ないときはgit clone
 # ======================================================
-if [ ! -d ~/dotfiles-m1 ]; then
+if [ ! -d ~/dotfiles ]; then
   cd ~
-  git clone git@github.com:Snails8/dotfiles-m1.git
+  git clone git@github.com:Snails8/dotfiles.git
 else
-  echo "dotfile-m1 is already exist."
+  echo "dotfile is already exist."
 fi
 
 # ======================================================
@@ -45,7 +45,7 @@ fi
 # ======================================================
 # install software from BrewBundle.
 # ======================================================
-brew bundle -v --file=~/dotfiles-m1/Brewfile
+brew bundle -v --file=~/dotfiles/Brewfile
 
 export PATH="$PATH:/opt/homebrew/bin"
 
@@ -57,12 +57,12 @@ fi
 # ======================================================
 # gcloud 
 # ======================================================
-if [ ! -f /opt/homebrew/bin/gcloud ]; then
-  curl https://sdk.cloud.google.com | bash
-  exec -l $SHELL 
-else
-  echo "gcloud is already exist."
-fi
+# if [ ! -f /opt/homebrew/bin/gcloud ]; then
+  # curl https://sdk.cloud.google.com | bash
+  # exec -l $SHELL 
+# else
+  # echo "gcloud is already exist."
+# fi
 
 # ======================================================
 # nodebrew がインストールされていない場合インストール (alfred で使用)
@@ -95,12 +95,11 @@ fi
 # ex) stow -v -d ~/dotfiles/packages/termial/ -t ~ fish
 # ex) ~/dotfiles/packages/termial/fish/.config/fish/*  -> root + .config/fish/*
 # root/.config/fish 配下にシンボリックリンクが作成される (衝突しないし、上書きもできる)
-# karabiner の設定
 # ======================================================
-stow -v -d ~/dotfiles-m1/arm64/packages/terminal -t ~ alacritty starship tmux iterm2 zshrc fish oh_my_fish thefuck gitconfig Makefile
-stow -v -d ~/dotfiles-m1/arm64/packages/editor -t ~ vimrc vscode
-stow -v -d ~/dotfiles-m1/arm64/packages/window_tool -t ~ yabai
-stow -v -d ~/dotfiles-m1/arm64/packages/keybind -t ~ skhd karabiner
+stow -v -d ~/dotfiles/arm64/packages/terminal -t ~ alacritty starship tmux zshrc fish oh_my_fish thefuck gitconfig Makefile
+stow -v -d ~/dotfiles/arm64/packages/editor -t ~ vimrc
+stow -v -d ~/dotfiles/arm64/packages/window_tool -t ~ yabai
+stow -v -d ~/dotfiles/arm64/packages/keybind -t ~ skhd
 
 # ======================================================
 # source は挙動が不安定なので一旦手動で
