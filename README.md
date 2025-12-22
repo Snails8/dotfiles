@@ -16,9 +16,11 @@ $ make install
 
 window management tool(start, stop, restart)
 ```shell
-$ brew services start skhd
-$ brew services start yabai
+$ yabai --start-service
+$  skhd --start-service
 ```
+
+
 
 Brew の同期
 ```shell
