@@ -22,10 +22,10 @@ export PATH=/opt/homebrew/opt/python3/libexec/bin:$PATH
 # aws-mfaの設定
 export PATH=$PATH:$HOME/Library/Python/3.9/bin
 
-# cluade code
-export CLAUDE_CODE_USE_BEDROCK=1
-export ANTHROPIC_MODEL="us.anthropic.claude-sonnet-4-20250514-v1:0"
-export AWS_REGION="us-east-1" # AWSのリージョンを指定
+# cluade code (enterprise使う時はオフにする。こっちの設定見にいくとaws参照するため)
+# export CLAUDE_CODE_USE_BEDROCK=1
+# export ANTHROPIC_MODEL="us.anthropic.claude-sonnet-4-20250514-v1:0"
+# export AWS_REGION="us-east-1" # AWSのリージョンを指定
 # export AWS_PROFILE="bedrock-dev"　# 一時無効
 export DISABLE_PROMPT_CACHING=0 # キャッシュを無効化する場合は1に設定
 
