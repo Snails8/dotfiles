@@ -184,13 +184,8 @@ function mds() {
   fi
 }
 
-function peco-history-selection() {
-    BUFFER=`\history -n 1 | tail -r  | awk '!a[$0]++' | peco`
-    CURSOR=$#BUFFER
-    zle reset-prompt
-}  
-zle -N peco-history-selection
-bindkey '^T' peco-history-selection
+# 履歴選択・ファイル選択は fzf に移行したため peco-history-selection は削除
+# (peco は vs / vsg / cds / mds で引き続き使用)
 
 # zsh-completion
 # completion path
@@ -200,11 +195,10 @@ fi
 autoload -Uz compinit
 compinit
 
-# 補完システムに履歴を混ぜる設定
-zstyle ':completion:*' completer _history _complete
-zstyle ':completion:*:history-words' list yes
-zstyle ':completion:*:history-words' stop yes
-zstyle ':completion:*:history-words' remove-all-dups yes
+# 補完設定: 通常補完 → 部分一致 → 曖昧一致の順で試す(ファイル補完を最優先)
+zstyle ':completion:*' completer _complete _match _approximate
+# メニュー選択式(Tab 連打で矢印キーで候補を選べる)
+zstyle ':completion:*' menu select
 
 # oh-my-zsh settings → 入れてないのでコメントアウト
 # export ZSH="$HOME/.oh-my-zsh"
@@ -221,6 +215,13 @@ zstyle ':completion:*:history-words' remove-all-dups yes
 # 文字列を標準入力としてシェルに与えて実行（した上でその返り値を取得）できる
 eval $(thefuck --alias)
 eval "$(starship init zsh)"
+
+# fzf 統合 (Ctrl+R: 履歴検索, Ctrl+T: ファイル検索, Alt+C: ディレクトリ移動)
+if command -v fzf >/dev/null 2>&1; then
+  source <(fzf --zsh)
+  export FZF_DEFAULT_OPTS="--height=40% --reverse --border"
+  export FZF_CTRL_R_OPTS="--preview 'echo {}' --preview-window=down:3:wrap"
+fi
 
 # source /Users/jmb20210029/.docker/init-zsh.sh || true # Added by Docker Desktop
 

@@ -11,7 +11,7 @@
   br     = branch
   bra    = branch -a
   ps     = push
-  pso    = push origin
+	pso = "!f() { if [ $# -eq 0 ]; then git push; else git push origin \"$@\"; fi; }; f"
   psod   = push origin develop
   psom   = push origin main
   pshm   = push heroku main
@@ -54,7 +54,8 @@
 [pull]
   rebase = false
 [push]
-  default = simple
+	default = current
+	autoSetupRemote = true
 [core]
   ignorecase = false
 	quotepath = false
