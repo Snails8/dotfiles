@@ -184,13 +184,8 @@ function mds() {
   fi
 }
 
-function peco-history-selection() {
-    BUFFER=`\history -n 1 | tail -r  | awk '!a[$0]++' | peco`
-    CURSOR=$#BUFFER
-    zle reset-prompt
-}  
-zle -N peco-history-selection
-bindkey '^T' peco-history-selection
+# 履歴選択・ファイル選択は fzf に移行したため peco-history-selection は削除
+# (peco は vs / vsg / cds / mds で引き続き使用)
 
 # zsh-completion
 # completion path
@@ -220,6 +215,13 @@ zstyle ':completion:*' menu select
 # 文字列を標準入力としてシェルに与えて実行（した上でその返り値を取得）できる
 eval $(thefuck --alias)
 eval "$(starship init zsh)"
+
+# fzf 統合 (Ctrl+R: 履歴検索, Ctrl+T: ファイル検索, Alt+C: ディレクトリ移動)
+if command -v fzf >/dev/null 2>&1; then
+  source <(fzf --zsh)
+  export FZF_DEFAULT_OPTS="--height=40% --reverse --border"
+  export FZF_CTRL_R_OPTS="--preview 'echo {}' --preview-window=down:3:wrap"
+fi
 
 # source /Users/jmb20210029/.docker/init-zsh.sh || true # Added by Docker Desktop
 
