@@ -200,11 +200,10 @@ fi
 autoload -Uz compinit
 compinit
 
-# 補完システムに履歴を混ぜる設定
-zstyle ':completion:*' completer _history _complete
-zstyle ':completion:*:history-words' list yes
-zstyle ':completion:*:history-words' stop yes
-zstyle ':completion:*:history-words' remove-all-dups yes
+# 補完設定: 通常補完 → 部分一致 → 曖昧一致の順で試す(ファイル補完を最優先)
+zstyle ':completion:*' completer _complete _match _approximate
+# メニュー選択式(Tab 連打で矢印キーで候補を選べる)
+zstyle ':completion:*' menu select
 
 # oh-my-zsh settings → 入れてないのでコメントアウト
 # export ZSH="$HOME/.oh-my-zsh"
